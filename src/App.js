@@ -1,5 +1,5 @@
 import "./App.scss";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import InfoBox from "./components/InfoBox";
 import info from "./img/info.png";
 import js from "./img/js.png";
@@ -48,7 +48,7 @@ function App() {
     },
   });
   const [output, setOutput] = useState(null);
-  const methods = [
+  const [methods] = useState([
     {
       name: "test",
       code: "$regex.test(string)",
@@ -75,7 +75,7 @@ function App() {
       code: "string.match($regex)",
       methodOf: "string",
     },
-  ];
+  ]);
 
   const [method, setMethod] = useState(methods[0].name);
   const [text, setText] = useState(
@@ -101,7 +101,7 @@ function App() {
       parsedCode = parsedCode[method](/\$replacement/, `"${input2}"`);
     }
     setJsCode(parsedCode);
-  }, [method, regexCode, input2]);
+  }, [method, regexCode, input2, methods]);
 
   useEffect(() => {
     function arrayToString(array) {
@@ -144,7 +144,7 @@ function App() {
           return output;
       }
     });
-  }, [regexCode, jsCode, text]);
+  }, [flags, input, methods, method, text, input2]);
 
   useEffect(() => {
     const output = document.querySelector(".output");
