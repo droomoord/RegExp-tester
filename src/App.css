@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+.app {
+  line-height: 1.8;
+  font-family: monospace;
+  padding: 1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app > * > * {
+  padding: 2em;
+  -webkit-box-shadow: 0px 0px 8px rgba(160, 160, 160, 0.5);
+          box-shadow: 0px 0px 8px rgba(160, 160, 160, 0.5);
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app input {
+  font-family: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app input[type="radio"],
+.app input[type="checkbox"] {
+  position: relative;
+  left: -0.5em;
+  top: 0.1em;
+}
+
+.app label {
+  color: #262626;
+}
+
+.app .output {
+  color: #7070ff;
+}
+
+.app .side-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.app .side-bar .checkboxes {
+  white-space: nowrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.app .side-bar .checkboxes label {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1ch;
+}
+
+.app .side-bar .checkboxes label .info {
+  cursor: pointer;
+}
+
+.app .side-bar .checkboxes label .info img {
+  width: 20px;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+
+.app .side-bar .title {
+  position: absolute;
+  top: -1em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #939393;
+}
+
+.app .side-bar .radios {
+  position: relative;
+}
+
+.app .side-bar .radios label {
+  display: block;
+}
+
+.app .side-bar .checkboxes {
+  position: relative;
+}
+
+.app .side-bar .input-wrapper input {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.app .side-bar .code {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1em;
+}
+
+.app .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.app .main textarea {
+  width: 100%;
+  resize: none;
+}
+
+.checkboxes .info:hover + .info-box {
+  display: block;
+}
+
+.info-box:hover {
+  display: block;
+}
+
+.info-box {
+  display: none;
+  position: absolute;
+  width: 200px;
+  background-color: white;
+  border: 1px solid #acacac;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.24);
+  top: -17px;
+  left: 100%;
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+  white-space: normal;
+  z-index: 1;
+  padding: 0 1.5em;
+  border-radius: 5px;
+}
+
+.info-box::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-left: 1px solid #acacac;
+  border-bottom: 1px solid #acacac;
+  top: 20px;
+  left: 0;
+  -webkit-transform: translate(-53%, 0) rotate(45deg);
+          transform: translate(-53%, 0) rotate(45deg);
+  z-index: -1;
+}
+
+.info-box p {
+  height: 100%;
+}
+
+.blue {
+  color: #1d1dda;
+}
+
+.number {
+  color: #7a8000;
+}
+
+.string {
+  color: #bd6608 !important;
+}
+
+.error {
+  color: red;
+}
+
+@media only screen and (min-width: 600px) {
+  .app {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 300px auto;
+        grid-template-columns: 300px auto;
+    gap: 3em;
   }
 }
+/*# sourceMappingURL=App.css.map */

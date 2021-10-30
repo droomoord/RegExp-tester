@@ -1,0 +1,146 @@
+.app {
+  line-height: 1.8;
+  font-family: monospace;
+  padding: 1em;
+  & > * > * {
+    padding: 2em;
+    box-shadow: 0px 0px 8px rgba(160, 160, 160, 0.5);
+    border-radius: 5px;
+  }
+  input {
+    font-family: inherit;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    position: relative;
+    left: -0.5em;
+    top: 0.1em;
+  }
+  label {
+    color: rgb(38, 38, 38);
+  }
+  .output {
+    color: rgb(112, 112, 255);
+  }
+  .side-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+    .checkboxes {
+      white-space: nowrap;
+      label {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 1ch;
+        .info {
+          cursor: pointer;
+          img {
+            width: 20px;
+            transform: translateY(20%);
+          }
+        }
+      }
+    }
+    .title {
+      position: absolute;
+      top: -1em;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #939393;
+    }
+    .radios {
+      position: relative;
+      label {
+        display: block;
+      }
+    }
+    .checkboxes {
+      position: relative;
+    }
+    .input-wrapper {
+      input {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+    }
+    .code {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1em;
+    }
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    textarea {
+      width: 100%;
+      resize: none;
+    }
+  }
+}
+
+.checkboxes .info:hover + .info-box {
+  display: block;
+}
+.info-box:hover {
+  display: block;
+}
+
+.info-box {
+  display: none;
+  position: absolute;
+  width: 200px;
+  background-color: white;
+  border: 1px solid rgb(172, 172, 172);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.24);
+  top: -17px;
+  left: 100%;
+  transform: translateX(-10px);
+  white-space: normal;
+  z-index: 1;
+  padding: 0 1.5em;
+  border-radius: 5px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-left: 1px solid rgb(172, 172, 172);
+    border-bottom: 1px solid rgb(172, 172, 172);
+    top: 20px;
+    left: 0;
+    transform: translate(-53%, 0) rotate(45deg);
+    z-index: -1;
+  }
+  p {
+    height: 100%;
+  }
+}
+
+.blue {
+  color: rgb(29, 29, 218);
+}
+.number {
+  color: rgb(122, 128, 0);
+}
+.string {
+  color: rgb(189, 102, 8) !important;
+}
+.error {
+  color: red;
+}
+
+@media only screen and (min-width: 600px) {
+  .app {
+    display: grid;
+    grid-template-columns: 300px auto;
+    gap: 3em;
+  }
+}
